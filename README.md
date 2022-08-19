@@ -38,8 +38,24 @@
 - Сервис должно быть возможно запустить посредством вызова команды
   `docker-compose up` из корня репозитория;
 
+## Дополнительные требования
+
+Эти требования не входят в базовую конфигурацию задания, но особо ценятся 
+дополнительно.
+
+- Настроить логгирование всех запросов приходящих в систему в stdout/stderr, а так 
+  же в файл. Для логов в файл нужно настроить retention и rotation;
+- Настроить сборку логов в Graylog/Prometheus + Graphana;
+- Обернуть сервис в прокси nginx, при это допускаются запросы проходящие только 
+  через nginx;
+- Добавить проверку на формат номера автомобиля, покрыть эту проверку тестами и
+  автоматизировать тестирование посредством CI/CD (GitHub Actions);
+
 ## Полезные ссылки
 
 - [Документация FastAPI](https://fastapi.tiangolo.com/)
 - [Документация Pydantic](https://pydantic-docs.helpmanual.io/)
+- [Документация Loguru](https://loguru.readthedocs.io/en/stable/index.html)
 - [Docker-образ PostgreSQL](https://hub.docker.com/_/postgres)
+- [Graylog в Docker](https://docs.graylog.org/docs/docker)
+- [Setup Grafana with Prometheus for Python projects using Docker](https://thepylot.dev/setup-grafana-with-prometheus-for-python-projects-docker-included/)
